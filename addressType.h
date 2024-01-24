@@ -11,17 +11,16 @@ class addressType
 		int zipcode = 10000;
 	public:
 		void print();
-		addressType();
+
+		//Precond - given state, city, address, and zipcode values
+		//Postcond - new addressType object is created with new and/or valid values
+		addressType(string = "(Your address)", string = "(Your city, county, or town)", string = "XX", int = 10000);
 
 		//gets individual variables from an addressType object
 		string getAddress();
 		string getCity();
 		string getState();
 		int getZipcode();
-
-		//Precond - given state, city, address, and zipcode values
-		//Postcond - new addressType object is created with new and/or valid values
-		addressType(string newAddr, string newCity, string newSt, int zip);
 
 		// setAddress
 		//Precond - Given value is an address

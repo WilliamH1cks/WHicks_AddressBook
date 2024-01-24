@@ -48,15 +48,6 @@ void addressType::setCity(string newCity)
 	city = newCity;
 }
 
-//default constructor
-addressType::addressType()
-{
-	address = "(An address)";
-	city = "(A city, county, or town)";
-	state = "XX";
-	zipcode = 10000;
-}
-
 //constructor w/ parameters
 addressType::addressType(string newAddr, string newCity, string newSt, int zip)
 {
