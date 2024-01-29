@@ -24,12 +24,24 @@
     <ClCompile Include="dateType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="extPersonType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="personType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addressType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dateType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="extPersonType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="personType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
