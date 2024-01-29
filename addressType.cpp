@@ -38,15 +38,9 @@ void addressType::setZipcode(int zip)
 	}
 }
 
-void addressType::setAddress(string newAddr)
-{
-	address = newAddr;
-}
+void addressType::setAddress(string newAddr) { address = newAddr; }
 
-void addressType::setCity(string newCity)
-{
-	city = newCity;
-}
+void addressType::setCity(string newCity) { city = newCity; }
 
 //constructor w/ parameters
 addressType::addressType(string newAddr, string newCity, string newSt, int zip)
@@ -59,22 +53,10 @@ addressType::addressType(string newAddr, string newCity, string newSt, int zip)
 	setZipcode(zip);
 }
 
-string addressType::getAddress()
-{
-	return address;
-}
+string addressType::getAddress() { return address; }
 
-string addressType::getCity()
-{
-	return city;
-}
+string addressType::getCity() { return city; }
 
-string addressType::getState()
-{
-	return state;
-}
+string addressType::getState() { return state; }
 
-int addressType::getZipcode()
-{
-	return zipcode;
-}
+int addressType::getZipcode() { return zipcode; }
