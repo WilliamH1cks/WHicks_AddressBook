@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
-#include "personType.cpp"
-#include "dateType.cpp"
-#include "addressType.cpp"
+#include "personType.h"
+#include "dateType.h"
+#include "addressType.h"
 using namespace std;
 
 class extPersonType : public personType
