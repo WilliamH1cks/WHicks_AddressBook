@@ -30,6 +30,9 @@
     <ClCompile Include="personType.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="addressBookType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="addressType.h">
@@ -44,5 +47,11 @@
     <ClInclude Include="personType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="addressBookType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\Downloads\AddressBookData.txt" />
   </ItemGroup>
 </Project>
