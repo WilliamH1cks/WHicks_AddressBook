@@ -23,7 +23,8 @@ int extPersonType::getBirthMonth() { return birthdate.getMonth(); }
 
 void extPersonType::print()
 {
-	cout << ("Name: " + getFirstName() + " " + getLastName()) << endl;
+	cout << ("Name: ");
+	personType::print();
 	address.print();
 	if (getPhoneNumber() != "None")
 	{
@@ -35,6 +36,7 @@ void extPersonType::print()
 	{
 		cout << "Relationship: " << getRelationship() << endl;
 	}
+	cout << endl << "Birthmonth: " << getBirthMonth() << endl;
 }
 
 extPersonType::extPersonType(string first, string last, int month, int day, int year, string addr, string hometown, string homestate, int zip, string number, string currentRelation):
