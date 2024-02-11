@@ -52,6 +52,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\Downloads\AddressBookData.txt" />
+    <Text Include="..\..\..\Downloads\AddressBookData.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

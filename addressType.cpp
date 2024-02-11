@@ -28,7 +28,7 @@ void addressType::setZipcode(int zip)
 		zipcode = zip;
 		if (zip == 10000)
 		{
-			cout << "Okay look, you put in the default zipcode, which is out-of-range but its gonna be used anyway." << endl;
+			//cout << "Okay look, you put in the default zipcode, which is out-of-range but its gonna be used anyway." << endl;
 		}
 	}
 	else

@@ -3,31 +3,121 @@
 
 
 #include <iostream>
-#include "extPersonType.h"
+#include <fstream>
+#include <string>
+#include "addressBookType.h"
 
 using namespace std;
 
+int showMenu(addressBookType);
+void search(addressBookType);
+
 int main()
 {
-    cout << "Testing default constructor ... " << endl;
-    extPersonType defPerson;
-    defPerson.print();
-    cout << endl;
+	addressBookType addrBook;
+	addrBook.initEntry();
 
-    cout << "Testing constructor with parameters ... " << endl;
-    extPersonType person("George", "Smith", 4, 30, 1994, "145 South Street, Apt. 5", "Hampton", "VA", 23554, "757-444-5555", "Friend");
-    person.print();
-    cout << endl;
+	//addrBook.print();
+	int loopBreak = 0;
+	while (loopBreak!= 4) 
+		loopBreak = showMenu(addrBook);
 
-    cout << "Testing invalid relationship (Spouse) ... " << endl;
-    person.setRelationship("Spouse");
-    person.print();
-    cout << endl;
+	return 0;
+}
 
-    cout << "Testing valid relationship (Business) ... " << endl;
-    person.setRelationship("Business");
-    person.print();
-    cout << endl;
+//Precond: None
+//Postcond: Returns user selection and perform desired outcome from printing the entire list, seaching for
+//			entries, sorting the list, or quitting
+int showMenu(addressBookType addrBook)
+{
+	//1. Print entire list
+	//2. Search
+	////a. By name
+	////b. By birthday
+	////c. By relation
+	//3. Sort
+	//4. Quit
+	cout << "Main Menu:" << endl
+		<< "1: Print the entire address book" << endl
+		<< "2: Search via last name, birth month, or relationship status" << endl
+		<< "3: Sort the list" << endl
+		<< "4: Quit the program" << endl;
+	int userInput = 0;
+	cin >> userInput;
+	if (userInput > 4 || userInput < 0)
+	{
+		cout << endl << "Invalid Option. Please select a different option." << endl;
+		return 0;
+	}
+	else
+	{
+		if (userInput == 1)
+		{
+			addrBook.print();
+			return userInput;
+		}
+		if (userInput == 2)
+			search(addrBook);
+		if (userInput == 3)
+			addrBook.sortEntries();
+		if (userInput == 4)
+			cout << "Quitting..." << endl;
+	}
+	return userInput;
+}
+
+void search(addressBookType addrBook)
+{
+	cout << "1: Search by last name" << endl
+		<< "2: Search by birth month" << endl
+		<< "3: Search by relationship" << endl
+		<< "4: Return to Main Menu" << endl;
+		int userInput = 0;
+	cin >> userInput;
+	if (userInput > 4 || userInput < 0)
+	{
+		cout << endl << "Invalid Option. Please select a different option." << endl;
+		return;
+	}
+	else
+	{
+		if (userInput == 1)
+		{
+			string name;
+			cout << "Enter the last name to search for: ";
+			cin >> name;
+			addrBook.findPerson(name);
+		}
+		if (userInput == 2)
+		{
+			int month = 0;
+			cout << "Enter the birth month to search for: ";
+			cin >> month;
+			while (month > 12 || month < 1)
+			{
+				cout << endl << "Invalid motnh. Please try again: ";
+				cin >> month;
+			}
+			addrBook.findBirthdays(month);
+		}
+		if (userInput == 3)
+		{
+			string relation;
+			cout << "Enter the relationship to search for: ";
+			cin >> relation;
+			while (relation != "Friend" && relation != "Family" && relation != "Business")
+			{
+				cout << "Invalid entry. Check the spelling and casing." << endl;
+				cout << "NOTE: Only \"Friend\", \"Family\", or \"Business\" are allowed relationships." << endl;
+				cout << "Reponse: ";
+				cin >> relation;
+			}
+			addrBook.findRelations(relation);
+		}
+		if (userInput == 4)
+			cout << "Returning to main menu..." << endl;
+	}
+	return;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

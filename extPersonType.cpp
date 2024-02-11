@@ -11,7 +11,7 @@ void extPersonType::setRelationship(string newRel) {
 	}
 	else
 	{
-		cout << "[Invalid relationship. Leaving field blank.]" << endl;
+		//cout << "[Invalid relationship. Leaving field blank.]" << endl;
 		relationship = "None";
 	}
 }
@@ -34,9 +34,9 @@ void extPersonType::print()
 	birthdate.print();
 	if (getRelationship() != "None")
 	{
-		cout << "Relationship: " << getRelationship() << endl;
+		cout << "Relationship: " << getRelationship() << endl << endl;
 	}
-	cout << endl << "Birthmonth: " << getBirthMonth() << endl;
+	//cout << endl << "Birthmonth: " << getBirthMonth() << endl;
 }
 
 extPersonType::extPersonType(string first, string last, int month, int day, int year, string addr, string hometown, string homestate, int zip, string number, string currentRelation):

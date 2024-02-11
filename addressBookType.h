@@ -12,11 +12,11 @@ class addressBookType
 	public:
 		//Precond: Information relating to an address book entry is entered
 		//Postcond: Said information is entered into an extPersonType object and entered into the address book
-		void initEntry(string);
+		void initEntry();
 
 		//Precond: A pre-created, initialized extPersonType object representing an entry
 		//Postcond: Checks the array if there is room for a new entry; then adds a new entry
-		void addEntry(extPersonType);
+		void addEntry(extPersonType, int);
 
 		//Precond: Takes in a last name
 		//Postcond: Shows entries with the given last name
