@@ -12,6 +12,8 @@ using namespace std;
 int showMenu(addressBookType);
 void search(addressBookType);
 
+//Main program. Initiates the address book then displays the menu
+//	Menu: Displays 4 options, will rerun everytime it boutputs a value that is not zero.
 int main()
 {
 	addressBookType addrBook;
@@ -25,9 +27,10 @@ int main()
 	return 0;
 }
 
-//Precond: None
+//Precond: An address book is created
 //Postcond: Returns user selection and perform desired outcome from printing the entire list, seaching for
-//			entries, sorting the list, or quitting
+//			entries, sorting the list, or quitting (User output is returned solely to determine if program should
+//			rerun)
 int showMenu(addressBookType addrBook)
 {
 	//1. Print entire list
@@ -66,6 +69,9 @@ int showMenu(addressBookType addrBook)
 	return userInput;
 }
 
+//Precond: User selected the Search option from the main menu, with a prepared address book object
+//Postcond: The address book's entries are filtered by a user-defined search of birth month, last name,
+//			or one of three relationship statuses.
 void search(addressBookType addrBook)
 {
 	cout << "1: Search by last name" << endl
