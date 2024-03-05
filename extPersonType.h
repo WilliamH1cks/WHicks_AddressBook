@@ -65,10 +65,10 @@ class extPersonType : public personType
 		//Overloaded == operator, serves to check if two extPersonTypes are identical based on a key
 
 		bool operator!=(const extPersonType) const;
-		//Overloaded == operator, serves to check if two extPersonTypes aren't identical based on a key
+		//Overloaded != operator, serves to check if two extPersonTypes aren't identical based on a key
 
 		bool operator>=(const extPersonType) const;
-		//Overloaded == operator, serves to check if the current node is past the search item (extPersonType) in a sorted list, based on a key
+		//Overloaded >= operator, serves to check if the current node is past the search item (extPersonType) in a sorted list, based on a key
 
 };
 

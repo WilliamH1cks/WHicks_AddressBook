@@ -6,21 +6,17 @@ using namespace std;
 
 class addressBookType:public orderedLinkedList<extPersonType>
 {
-	//private:
-	//	extPersonType addressList[500];
-	//	int length;
-	//	int maxLength;
 	public:
 		//Precond: Information relating to an address book entry is entered
 		//Postcond: Said information is entered into an extPersonType object and entered into the address book
 		void initEntry();
 
 		//Precond: A pre-created, initialized extPersonType object representing an entry
-		//Postcond: Checks the array if there is room for a new entry; then adds a new entry
+		//Postcond: Adds the new entry into the linked list, which represents the address book.
 		void addEntry(extPersonType);
 
-		//Precond: Takes in a last name
-		//Postcond: Shows entries with the given last name
+		//Precond: Takes in a last and first name
+		//Postcond: Shows entries with the given name (Usually only one)
 		void findPerson(string, string);
 
 		//Precond: Takes in a month number
@@ -34,11 +30,8 @@ class addressBookType:public orderedLinkedList<extPersonType>
 		//Prints the entire address book
 		void print();
 
-		//Sorts the entries in alphabetical order last name
-		//void sortEntries();
-
 		//Constructor
-		addressBookType(int = 500);
+		addressBookType();
 
 		//Precond: User chooses the option to add an entry
 		//Postcond: A new extPersonType is created and inserted into the linked list

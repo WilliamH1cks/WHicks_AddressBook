@@ -257,9 +257,5 @@ void addressBookType::saveFile()
 	outFile.close();
 }
 
-addressBookType::addressBookType(int maxSize)
-{
-	//length = 0;
-	//maxLength = maxSize;
-}
+addressBookType::addressBookType(){ }
 

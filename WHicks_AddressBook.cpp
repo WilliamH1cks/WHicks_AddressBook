@@ -13,7 +13,7 @@ int showMenu(addressBookType);
 void search(addressBookType);
 
 //Main program. Initiates the address book then displays the menu
-//	Menu: Displays 4 options, will rerun everytime it boutputs a value that is not zero.
+//	Menu: Displays 6 options, will rerun everytime it outputs a value between 1 and 5.
 int main()
 {
 	addressBookType addrBook;
