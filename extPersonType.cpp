@@ -4,6 +4,11 @@
 using namespace std;
 
 void extPersonType::setPhoneNumber(string newNum) { phoneNumber = newNum; }
+void extPersonType::setFullName(string last, string first) { 
+	setFirstName(first);
+	setLastName(last);
+	key = last + " " + first;
+}
 void extPersonType::setRelationship(string newRel) { 
 	if (newRel == "Friend" || newRel == "Family" || newRel == "Business")
 	{
@@ -18,6 +23,7 @@ void extPersonType::setRelationship(string newRel) {
 
 string extPersonType::getPhoneNumber() { return phoneNumber; }
 string extPersonType::getRelationship() { return relationship; }
+string extPersonType::getFullName() { return key; }
 
 int extPersonType::getBirthMonth() { return birthdate.getMonth(); }
 
@@ -44,4 +50,19 @@ extPersonType::extPersonType(string first, string last, int month, int day, int 
 {
 	phoneNumber = number;
 	setRelationship(currentRelation);
+}
+
+bool extPersonType::operator== (const extPersonType right) const
+{
+	return (key == right.key);
+}
+
+bool extPersonType::operator!= (const extPersonType right) const
+{
+	return (key != right.key);
+}
+
+bool extPersonType::operator>= (const extPersonType right) const
+{
+	return (key >= right.key);
 }

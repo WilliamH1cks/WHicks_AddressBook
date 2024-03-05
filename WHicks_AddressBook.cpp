@@ -38,12 +38,12 @@ int showMenu(addressBookType addrBook)
 	////a. By name
 	////b. By birthday
 	////c. By relation
-	//3. Sort
+	//3. Add entry (linked list)
 	//4. Quit
 	cout << "Main Menu:" << endl
 		<< "1: Print the entire address book" << endl
-		<< "2: Search via last name, birth month, or relationship status" << endl
-		<< "3: Sort the list" << endl
+		<< "2: Search via name, birth month, or relationship status" << endl
+		<< "3: Add a new entry" << endl
 		<< "4: Quit the program" << endl;
 	int userInput = 0;
 	cin >> userInput;
@@ -55,14 +55,11 @@ int showMenu(addressBookType addrBook)
 	else
 	{
 		if (userInput == 1)
-		{
 			addrBook.print();
-			return userInput;
-		}
 		if (userInput == 2)
 			search(addrBook);
 		if (userInput == 3)
-			addrBook.sortEntries();
+			addrBook.createNewEntry();
 		if (userInput == 4)
 			cout << "Quitting..." << endl;
 	}
@@ -74,7 +71,7 @@ int showMenu(addressBookType addrBook)
 //			or one of three relationship statuses.
 void search(addressBookType addrBook)
 {
-	cout << "1: Search by last name" << endl
+	cout << "1: Search by name" << endl
 		<< "2: Search by birth month" << endl
 		<< "3: Search by relationship" << endl
 		<< "4: Return to Main Menu" << endl;
@@ -89,10 +86,13 @@ void search(addressBookType addrBook)
 	{
 		if (userInput == 1)
 		{
-			string name;
+			string last;
+			string first;
 			cout << "Enter the last name to search for: ";
-			cin >> name;
-			addrBook.findPerson(name);
+			cin >> last;
+			cout << "Enter the first name to search for: ";
+			cin >> first;
+			addrBook.findPerson(last, first);
 		}
 		if (userInput == 2)
 		{
