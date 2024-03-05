@@ -41,7 +41,15 @@ class addressBookType:public orderedLinkedList<extPersonType>
 		addressBookType(int = 500);
 
 		//Precond: User chooses the option to add an entry
-		//Postcond: A new extPersonType is created and inserted into the linked list serving as the new address book.
+		//Postcond: A new extPersonType is created and inserted into the linked list
 		void createNewEntry();
+
+		//Precond: User terminates program or wishes to save progress
+		//Postcond: The file is saved into AddressBookData.txt
+		void saveFile();
+
+		//Precond: User chooses the option to delete an entry and an entry to delete
+		//Postcond: The extPersonType associated with the given choice is deleted.
+		void deleteEntry();
 };
 

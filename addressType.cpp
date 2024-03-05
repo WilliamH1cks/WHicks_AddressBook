@@ -16,7 +16,7 @@ void addressType::setState(string newSt)
 	}
 	else
 	{
-		cout << "The state abbriviation, \"" << newSt << "\", is invalid. Deafulting to the abbreviation \"XX\"..." << endl;
+		cout << "The state abbriviation, \"" << newSt << "\", is invalid. Defaulting to the abbreviation \"XX\"..." << endl;
 		state = "XX";
 	}
 }

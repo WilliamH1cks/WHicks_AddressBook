@@ -40,9 +40,9 @@ void extPersonType::print()
 	birthdate.print();
 	if (getRelationship() != "None")
 	{
-		cout << "Relationship: " << getRelationship() << endl << endl;
+		cout << "Relationship: " << getRelationship() << endl;
 	}
-	//cout << endl << "Birthmonth: " << getBirthMonth() << endl;
+	cout << endl;
 }
 
 extPersonType::extPersonType(string first, string last, int month, int day, int year, string addr, string hometown, string homestate, int zip, string number, string currentRelation):
@@ -66,3 +66,11 @@ bool extPersonType::operator>= (const extPersonType right) const
 {
 	return (key >= right.key);
 }
+
+int extPersonType::getBirthDate() { return birthdate.getDay(); }
+int extPersonType::getBirthYear() { return birthdate.getYear(); }
+
+string extPersonType::getAddress() { return address.getAddress(); }
+string extPersonType::getCity() { return address.getCity(); }
+string extPersonType::getState() { return address.getState(); }
+int extPersonType::getZipcode() { return address.getZipcode(); }

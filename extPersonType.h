@@ -14,6 +14,8 @@ class extPersonType : public personType
 		string phoneNumber;
 		string relationship;
 		string key = getLastName() + " " + getFirstName();
+
+
 	public:
 		//Precond: A given string representing a phone number is given
 		//Postcond: Sets the phone number variable.
@@ -33,8 +35,21 @@ class extPersonType : public personType
 		//Postcond: The two names are set, alongside the key
 		void setFullName(string last, string first);
 
-		// Fetches the birthmonth from the birthday, likely for future sorting
+		// Fetches the birthmonth from the birthday, for saving to file
 		int getBirthMonth();
+		// Fetches the birthdate from the birthday, for saving to file
+		int getBirthDate();
+		// Fetches the birthyear from the birthday, for saving to file
+		int getBirthYear();
+
+		//Fetches the street address from the address, for saving the file
+		string getAddress();
+		//Fetches the city from the address, for saving the file
+		string getCity();
+		//Fetches the state from the address, for saving the file
+		string getState();
+		//Fetches the zipcode from the address, for saving the file
+		int getZipcode();
 
 		// Fetches the full name/key, for name-searching
 		string getFullName();

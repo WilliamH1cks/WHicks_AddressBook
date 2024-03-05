@@ -21,8 +21,52 @@ int main()
 
 	//addrBook.print();
 	int loopBreak = 0;
-	while (loopBreak!= 4) 
-		loopBreak = showMenu(addrBook);
+	while (loopBreak != 6)
+	{
+		//1. Print entire list
+		//2. Search
+		////a. By name
+		////b. By birthday
+		////c. By relation
+		//3. Add entry
+		//4. Delete entry
+		//5. Save without quitting
+		//6. Save & quit
+		cout << "Main Menu:" << endl
+			<< "1: Print the entire address book" << endl
+			<< "2: Search via name, birth month, or relationship status" << endl
+			<< "3: Add a new entry" << endl
+			<< "4: Delete and entry" << endl
+			<< "5. Save to file" << endl
+			<< "6: Save and quit the program" << endl;
+		int userInput = 0;
+		cin >> userInput;
+		if (userInput > 6 || userInput < 0)
+		{
+			cout << endl << "Invalid Option. Please select a different option." << endl;
+			return 0;
+		}
+		else
+		{
+			if (userInput == 1)
+				addrBook.print();
+			if (userInput == 2)
+				search(addrBook);
+			if (userInput == 3)
+				addrBook.createNewEntry();
+			if (userInput == 4)
+				addrBook.deleteEntry();
+			if (userInput == 5)
+				addrBook.saveFile();
+			if (userInput >= 6 || userInput < 1)
+			{
+				cout << "Quitting..." << endl;
+				addrBook.saveFile();
+			}
+		}
+		loopBreak = userInput;
+	}
+
 
 	return 0;
 }
@@ -31,8 +75,11 @@ int main()
 //Postcond: Returns user selection and perform desired outcome from printing the entire list, seaching for
 //			entries, sorting the list, or quitting (User output is returned solely to determine if program should
 //			rerun)
-int showMenu(addressBookType addrBook)
-{
+// 
+//	NOTE: As showMenu() uses an outdated addrBook once a new entry was added, its code is moved up
+//		to the main function.
+//int showMenu(addressBookType addrBook)
+//{
 	//1. Print entire list
 	//2. Search
 	////a. By name
@@ -40,31 +87,31 @@ int showMenu(addressBookType addrBook)
 	////c. By relation
 	//3. Add entry (linked list)
 	//4. Quit
-	cout << "Main Menu:" << endl
-		<< "1: Print the entire address book" << endl
-		<< "2: Search via name, birth month, or relationship status" << endl
-		<< "3: Add a new entry" << endl
-		<< "4: Quit the program" << endl;
-	int userInput = 0;
-	cin >> userInput;
-	if (userInput > 4 || userInput < 0)
-	{
-		cout << endl << "Invalid Option. Please select a different option." << endl;
-		return 0;
-	}
-	else
-	{
-		if (userInput == 1)
-			addrBook.print();
-		if (userInput == 2)
-			search(addrBook);
-		if (userInput == 3)
-			addrBook.createNewEntry();
-		if (userInput == 4)
-			cout << "Quitting..." << endl;
-	}
-	return userInput;
-}
+//	cout << "Main Menu:" << endl
+//		<< "1: Print the entire address book" << endl
+//		<< "2: Search via name, birth month, or relationship status" << endl
+//		<< "3: Add a new entry" << endl
+//		<< "4: Quit the program" << endl;
+//	int userInput = 0;
+//	cin >> userInput;
+//	if (userInput > 4 || userInput < 0)
+//	{
+//		cout << endl << "Invalid Option. Please select a different option." << endl;
+//		return 0;
+//	}
+//	else
+//	{
+//		if (userInput == 1)
+//			addrBook.print();
+//		if (userInput == 2)
+//			search(addrBook);
+//		if (userInput == 3)
+//			addrBook.createNewEntry();
+//		if (userInput == 4)
+//			cout << "Quitting..." << endl;
+//	}
+//	return userInput;
+//}
 
 //Precond: User selected the Search option from the main menu, with a prepared address book object
 //Postcond: The address book's entries are filtered by a user-defined search of birth month, last name,
@@ -126,13 +173,4 @@ void search(addressBookType addrBook)
 	return;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

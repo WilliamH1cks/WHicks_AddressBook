@@ -79,14 +79,24 @@ void addressBookType::createNewEntry()
 	cin >> relation;
 
 	extPersonType entry(firstName, lastName, month, day, year, addr, city, state, zip, phone, relation);
-	entry.print();
+	//entry.print();
 
-	addEntry(entry);
+	//cout << "Full Name: " << entry.getFullName() << endl;
+
+	//addEntry(entry);
+	insert(entry);
+	print();
+	cout << endl;
+
+	addressBookType *result = this;
+
+	return;
 }
 
 void addressBookType::addEntry(extPersonType entry)
 {
 	insert(entry);
+	//entry.print();
 }
 
 void addressBookType::findPerson(string lastFilter, string firstFilter)
@@ -170,7 +180,7 @@ void addressBookType::print()
 	//for (int i = 0; i < length; i += 1)
 	//	addressList[i].print();
 	nodeType <extPersonType>* current = this->first;
-	while (current->link != nullptr)
+	while (current != nullptr)
 	{
 		current->info.print();
 		current = current->link;
@@ -197,6 +207,55 @@ void addressBookType::print()
 //	}
 //	print();
 //}
+
+void addressBookType::deleteEntry()
+{
+	string firstName = "", lastName = "";
+
+	nodeType<extPersonType>* newNode = new nodeType<extPersonType>;
+
+	cout << "Enter in first name: ";
+	cin >> firstName;
+	cout << "Enter in last name: ";
+	cin >> lastName;
+
+	newNode->info.setFullName(lastName, firstName);
+
+	deleteNode(newNode->info);
+}
+
+void addressBookType::saveFile()
+{
+	ofstream outFile;
+	//string firstName, lastName;
+	//int month, day, year;
+	//string addr, city, state;
+	//int zip;
+	//string phone, relation;
+	nodeType <extPersonType>* current = this->first;
+
+	outFile.open("AddressBookData.txt");
+
+	while (current != nullptr)
+	{
+		extPersonType entry = current->info;
+
+		outFile << entry.getFirstName() << " " << entry.getLastName() << endl;
+		outFile << entry.getBirthMonth() << " " << entry.getBirthDate() << " " << entry.getBirthYear() << endl;
+		outFile << entry.getAddress() << endl;
+		outFile << entry.getCity() << endl;
+		outFile << entry.getState() << endl;
+		outFile << entry.getZipcode() << endl;
+		outFile << entry.getPhoneNumber() << endl;
+		outFile << entry.getRelationship() << endl;
+
+		//extPersonType entry(firstName, lastName, month, day, year, addr, city, state, zip, phone, relation);
+
+		current = current->link;
+	}
+
+	outFile.close();
+}
 
 addressBookType::addressBookType(int maxSize)
 {
